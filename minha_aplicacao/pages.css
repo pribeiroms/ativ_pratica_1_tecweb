@@ -1,13 +1,15 @@
 :root {
-  --bg: #f4efe7;
-  --surface: #fffaf2;
-  --surface-strong: #f1e2cf;
+  --bg: #f6efe5;
+  --surface: #fffaf4;
+  --surface-strong: #f3e1cb;
+  --surface-soft: #fff4e7;
   --text: #2f261f;
   --muted: #6f6259;
-  --accent: #b85c38;
+  --accent: #bc5a34;
   --accent-strong: #8f4325;
+  --accent-deep: #5c2410;
   --border: #e6d6c3;
-  --shadow: 0 18px 45px rgba(92, 67, 51, 0.12);
+  --shadow: 0 20px 50px rgba(92, 67, 51, 0.14);
   --max-width: 1100px;
   --radius: 24px;
 }
@@ -19,11 +21,11 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top, rgba(255, 250, 242, 0.95), transparent 30%),
-    linear-gradient(180deg, #f8f3ec 0%, var(--bg) 100%);
+    radial-gradient(circle at top, rgba(255, 248, 240, 0.95), transparent 28%),
+    linear-gradient(180deg, #fbf6f0 0%, var(--bg) 100%);
 }
 
 .container {
@@ -32,7 +34,7 @@ body {
 }
 
 .site-header {
-  padding: 40px 0 20px;
+  padding: 48px 0 24px;
 }
 
 .site-header h1,
@@ -60,7 +62,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(244, 239, 231, 0.92);
+  background: rgba(246, 239, 229, 0.88);
   backdrop-filter: blur(8px);
   border-top: 1px solid rgba(230, 214, 195, 0.8);
   border-bottom: 1px solid rgba(230, 214, 195, 0.8);
@@ -68,27 +70,53 @@ body {
 
 .nav-links {
   display: flex;
-  gap: 12px;
-  padding: 14px 0;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 0;
   flex-wrap: wrap;
 }
 
 .nav-links a {
+  position: relative;
   text-decoration: none;
-  color: var(--accent-strong);
+  color: var(--accent-deep);
   font-weight: 700;
-  padding: 10px 16px;
+  letter-spacing: 0.01em;
+  padding: 12px 20px;
   border-radius: 999px;
-  transition: background-color 0.2s ease;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid transparent;
+  box-shadow: 0 10px 24px rgba(143, 67, 37, 0.08);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   background: var(--surface-strong);
+  border-color: rgba(188, 90, 52, 0.25);
+  box-shadow: 0 14px 28px rgba(143, 67, 37, 0.14);
+}
+
+.nav-links a:hover {
+  transform: translateY(-1px);
+}
+
+.nav-links a:focus-visible,
+.button-link:focus-visible,
+button:focus-visible,
+.field input:focus-visible,
+.field textarea:focus-visible,
+.field select:focus-visible {
+  outline: 3px solid rgba(188, 90, 52, 0.28);
+  outline-offset: 2px;
 }
 
 .page-content {
-  padding: 32px 0 48px;
+  padding: 36px 0 56px;
 }
 
 .card {
@@ -96,7 +124,7 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 28px;
+  padding: 32px;
 }
 
 .card p {
@@ -122,27 +150,42 @@ button {
   border: 0;
   border-radius: 999px;
   padding: 12px 20px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
   color: #fff;
   text-decoration: none;
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 14px 26px rgba(188, 90, 52, 0.22);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button-link:hover,
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 30px rgba(188, 90, 52, 0.26);
 }
 
 .button-link.secondary {
   background: var(--surface-strong);
   color: var(--accent-strong);
+  box-shadow: none;
 }
 
 .form-grid {
+  width: min(100%, 560px);
+  margin: 28px auto 0;
   display: grid;
-  gap: 18px;
+  gap: 20px;
+  padding: 28px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 244, 231, 0.9), rgba(255, 255, 255, 0.9));
+  border: 1px solid rgba(230, 214, 195, 0.9);
 }
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   font-weight: 700;
 }
 
@@ -163,11 +206,31 @@ button {
   resize: vertical;
 }
 
+.field input,
+.field select,
+.field textarea {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: rgba(188, 90, 52, 0.35);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: rgba(188, 90, 52, 0.55);
+  box-shadow: 0 0 0 4px rgba(188, 90, 52, 0.12);
+}
+
 .actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 8px;
+  justify-content: center;
+  margin-top: 4px;
 }
 
 .toolbar {
@@ -180,13 +243,35 @@ button {
 }
 
 #lista-cadastros {
-  min-height: 120px;
+  min-height: 180px;
   margin: 0;
-  padding: 20px;
+  padding: 18px;
   list-style: none;
-  border: 1px dashed var(--border);
+  border: 1px dashed rgba(188, 90, 52, 0.28);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 244, 231, 0.78));
+  display: grid;
+  gap: 14px;
+}
+
+#lista-cadastros:empty::before {
+  content: "Nenhum cadastro exibido ainda. Os itens aparecerao aqui em formato de cards.";
+  display: block;
+  padding: 26px 20px;
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+}
+
+#lista-cadastros li {
+  padding: 18px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.5);
+  background: #fff;
+  border: 1px solid rgba(230, 214, 195, 0.95);
+  box-shadow: 0 12px 24px rgba(92, 67, 51, 0.08);
 }
 
 table {
@@ -224,47 +309,63 @@ tr:last-child td {
 }
 
 @media (max-width: 768px) {
+  .container {
+    width: min(var(--max-width), calc(100% - 20px));
+  }
+
+  .site-header {
+    padding: 28px 0 18px;
+  }
+
   .grid-two {
     grid-template-columns: 1fr;
   }
 
   .page-content {
-    padding-top: 24px;
+    padding: 24px 0 40px;
   }
 
-  table,
-  thead,
-  tbody,
-  tr,
-  th,
-  td {
-    display: block;
+  .card {
+    padding: 22px;
+    border-radius: 20px;
   }
 
-  thead {
-    display: none;
+  .nav-links {
+    justify-content: stretch;
+    gap: 10px;
   }
 
-  tr {
-    margin-bottom: 16px;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
+  .nav-links a {
+    flex: 1 1 100%;
+    text-align: center;
+    padding: 12px 14px;
   }
 
-  td {
-    border-bottom: 1px solid var(--border);
+  .form-grid {
+    width: 100%;
+    margin-top: 22px;
+    padding: 18px;
+    gap: 16px;
   }
 
-  td::before {
-    content: attr(data-label);
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 700;
-    color: var(--muted);
+  .field input,
+  .field select,
+  .field textarea {
+    padding: 13px 14px;
   }
 
-  tr:last-child {
-    margin-bottom: 0;
+  .toolbar {
+    align-items: stretch;
+  }
+
+  .toolbar .button-link,
+  .actions button,
+  .actions .button-link {
+    width: 100%;
+  }
+
+  #lista-cadastros {
+    min-height: 140px;
+    padding: 14px;
   }
 }
