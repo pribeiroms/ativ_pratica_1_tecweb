@@ -189,6 +189,13 @@ button:hover {
   font-weight: 700;
 }
 
+.field-error {
+  min-height: 1.1rem;
+  color: #a12d2d;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
 .field input,
 .field select,
 .field textarea {
@@ -233,6 +240,21 @@ button:hover {
   margin-top: 4px;
 }
 
+.form-message {
+  min-height: 1.3rem;
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.form-message.success {
+  color: #2c6630;
+}
+
+.form-message.error {
+  color: #a12d2d;
+}
+
 .toolbar {
   display: flex;
   justify-content: space-between;
@@ -272,6 +294,18 @@ button:hover {
   background: #fff;
   border: 1px solid rgba(230, 214, 195, 0.95);
   box-shadow: 0 12px 24px rgba(92, 67, 51, 0.08);
+}
+
+.cadastro-item strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+}
+
+.cadastro-item span {
+  display: block;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 table {
