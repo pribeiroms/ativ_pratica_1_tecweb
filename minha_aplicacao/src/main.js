@@ -1,5 +1,5 @@
-import '.;style.css'
+import './style.css'
 
 localStorage.setItem("dados", []);
 
-localStorage.getItem("dados" []);
+localStorage.getItem("dados", []);
