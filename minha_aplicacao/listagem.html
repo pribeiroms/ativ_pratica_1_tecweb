@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listagem | Pratica de Tecnologias Web</title>
+    <link rel="stylesheet" href="./pages.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <p class="eyebrow">Pratica Presencial Unidades 1 e 2</p>
+        <h1>Listagem</h1>
+        <p class="intro">
+          Pagina reservada para a exibicao dos registros em memoria com
+          renderizacao dinamica via JavaScript.
+        </p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegacao principal">
+      <div class="container nav-links">
+        <a href="./index.html">Inicio</a>
+        <a href="./cadastro.html">Cadastro</a>
+        <a class="active" href="./listagem.html">Listagem</a>
+      </div>
+    </nav>
+
+    <main class="container page-content">
+      <section class="card">
+        <h2>Listagem de Cadastros</h2>
+        <p>
+          A area abaixo ficara responsavel por receber os dados cadastrados.
+        </p>
+
+        <div class="toolbar">
+          <a class="button-link" href="./cadastro.html">Novo cadastro</a>
+        </div>
+
+        <ul id="lista-cadastros"></ul>
+      </section>
+    </main>
+  </body>
+</html>
