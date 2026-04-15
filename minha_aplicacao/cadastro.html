@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro | Pratica de Tecnologias Web</title>
+    <link rel="stylesheet" href="./pages.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <p class="eyebrow">Pratica Presencial Unidades 1 e 2</p>
+        <h1>Cadastro</h1>
+        <p class="intro">
+          Pagina dedicada ao formulario da aplicacao, com espaco para validacao
+          dos dados e tratamento de eventos em JavaScript.
+        </p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegacao principal">
+      <div class="container nav-links">
+        <a href="./index.html">Inicio</a>
+        <a class="active" href="./cadastro.html">Cadastro</a>
+        <a href="./listagem.html">Listagem</a>
+      </div>
+    </nav>
+
+    <main class="container page-content">
+      <section class="card">
+        <h2>Cadastro de Pessoas</h2>
+        <p>Preencha os dados abaixo para registrar uma nova pessoa na aplicacao.</p>
+
+        <form class="form-grid">
+          <label class="field" for="nome">
+            Nome
+            <input id="nome" name="nome" type="text" placeholder="Digite o nome" />
+          </label>
+
+          <label class="field" for="email">
+            E-mail
+            <input id="email" name="email" type="email" placeholder="Digite o e-mail" />
+          </label>
+
+          <div class="actions">
+            <button type="submit">Enviar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

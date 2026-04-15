@@ -1,13 +1,58 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>minha_aplicacao</title>
+    <title>Inicio | Pratica de Tecnologias Web</title>
+    <link rel="stylesheet" href="./pages.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <header class="site-header">
+      <div class="container">
+        <p class="eyebrow">Pratica Presencial Unidades 1 e 2</p>
+        <h1>Tecnologias Web</h1>
+        <p class="intro">
+          Aplicacao base para cadastro e listagem de dados, com navegacao entre
+          paginas e estrutura pronta para HTML, CSS e JavaScript.
+        </p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Navegacao principal">
+      <div class="container nav-links">
+        <a class="active" href="./index.html">Inicio</a>
+        <a href="./cadastro.html">Cadastro</a>
+        <a href="./listagem.html">Listagem</a>
+      </div>
+    </nav>
+
+    <main class="container page-content">
+      <section class="card hero-card">
+        <h2>Objetivo da aplicacao</h2>
+        <p>
+          Esta pagina inicial apresenta a proposta do projeto e centraliza a
+          navegacao para as telas de cadastro e listagem.
+        </p>
+      </section>
+
+      <section class="grid-two">
+        <article class="card">
+          <h2>Cadastro</h2>
+          <p>
+            Area destinada ao formulario com validacao e tratamento de eventos.
+          </p>
+          <a class="button-link" href="./cadastro.html">Ir para cadastro</a>
+        </article>
+
+        <article class="card">
+          <h2>Listagem</h2>
+          <p>
+            Area destinada a renderizacao dinamica dos dados cadastrados na
+            aplicacao.
+          </p>
+          <a class="button-link" href="./listagem.html">Ir para listagem</a>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
