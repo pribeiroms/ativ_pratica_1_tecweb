@@ -36,6 +36,12 @@ function setupFormulario() {
     renderErrors(errors);
 
     if (Object.keys(errors).length > 0) {
+      if (!state.form.nome || !state.form.email) {
+        alert("Preencha todos os campos!");
+      } else if (!state.form.email.includes("@")) {
+        alert("Email invalido!");
+      }
+
       setFormMessage("Corrija os campos destacados antes de enviar.", "error");
       return;
     }
