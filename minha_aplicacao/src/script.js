@@ -9,7 +9,7 @@ const state = {
 };
 
 const form = document.querySelector("#cadastro-form");
-const lista = document.querySelector("#lista-cadastros");
+const lista = document.getElementById("lista");
 const resumoLista = document.querySelector("#lista-resumo");
 const limparCadastrosButton = document.querySelector("#limpar-cadastros");
 

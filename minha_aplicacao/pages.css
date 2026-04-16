@@ -270,7 +270,7 @@ button:hover {
   font-weight: 700;
 }
 
-#lista-cadastros {
+#lista {
   min-height: 180px;
   margin: 0;
   padding: 18px;
@@ -283,7 +283,7 @@ button:hover {
   gap: 14px;
 }
 
-#lista-cadastros:empty::before {
+#lista:empty::before {
   content: "Nenhum cadastro exibido ainda. Os itens aparecerao aqui em formato de cards.";
   display: block;
   padding: 26px 20px;
@@ -294,7 +294,7 @@ button:hover {
   line-height: 1.6;
 }
 
-#lista-cadastros li {
+#lista li {
   padding: 18px;
   border-radius: 18px;
   background: #fff;
@@ -408,7 +408,7 @@ tr:last-child td {
     width: 100%;
   }
 
-  #lista-cadastros {
+  #lista {
     min-height: 140px;
     padding: 14px;
   }
