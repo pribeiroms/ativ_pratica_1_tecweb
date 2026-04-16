@@ -264,6 +264,12 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.list-summary {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 700;
+}
+
 #lista-cadastros {
   min-height: 180px;
   margin: 0;
@@ -390,6 +396,10 @@ tr:last-child td {
 
   .toolbar {
     align-items: stretch;
+  }
+
+  .list-summary {
+    text-align: center;
   }
 
   .toolbar .button-link,

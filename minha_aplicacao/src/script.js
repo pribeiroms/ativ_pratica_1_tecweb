@@ -10,12 +10,15 @@ const state = {
 
 const form = document.querySelector("#cadastro-form");
 const lista = document.querySelector("#lista-cadastros");
+const resumoLista = document.querySelector("#lista-resumo");
+const limparCadastrosButton = document.querySelector("#limpar-cadastros");
 
 if (form) {
   setupFormulario();
 }
 
 if (lista) {
+  setupListagem();
   renderLista();
 }
 
@@ -52,13 +55,24 @@ function setupFormulario() {
       email: state.form.email,
     };
 
-    state.usuarios.push(novoUsuario);
-    saveUsuarios();
+    addUsuario(novoUsuario);
     form.reset();
     state.form.nome = "";
     state.form.email = "";
     renderErrors({});
     setFormMessage("Cadastro realizado com sucesso.", "success");
+  });
+}
+
+function setupListagem() {
+  if (!limparCadastrosButton) {
+    return;
+  }
+
+  limparCadastrosButton.addEventListener("click", () => {
+    state.usuarios = [];
+    saveUsuarios();
+    renderLista();
   });
 }
 
@@ -125,6 +139,10 @@ function setFormMessage(message, type) {
 }
 
 function renderLista() {
+  if (!lista) {
+    return;
+  }
+
   lista.innerHTML = "";
 
   state.usuarios.forEach((usuario) => {
@@ -137,6 +155,9 @@ function renderLista() {
     `;
     lista.appendChild(item);
   });
+
+  updateResumoLista();
+  updateListagemActions();
 }
 
 function loadUsuarios() {
@@ -156,6 +177,31 @@ function loadUsuarios() {
 
 function saveUsuarios() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(state.usuarios));
+}
+
+function addUsuario(usuario) {
+  state.usuarios.push(usuario);
+  saveUsuarios();
+}
+
+function updateResumoLista() {
+  if (!resumoLista) {
+    return;
+  }
+
+  const totalCadastros = state.usuarios.length;
+  resumoLista.textContent =
+    totalCadastros === 0
+      ? "Nenhum cadastro salvo no momento."
+      : `${totalCadastros} cadastro(s) armazenado(s) em memoria e no navegador.`;
+}
+
+function updateListagemActions() {
+  if (!limparCadastrosButton) {
+    return;
+  }
+
+  limparCadastrosButton.disabled = state.usuarios.length === 0;
 }
 
 function isValidEmail(email) {
